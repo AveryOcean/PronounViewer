@@ -26,13 +26,19 @@ namespace Viewer
 
         public static string SerializeDictionary(Dictionary<string, int> dict, string header = "")
         {
+            //Create output with header
             string output = $"{header}\n";
+
             foreach (var k in dict)
             {
+                //Get type (name) and rating
                 var type = k.Key;
                 var rating = k.Value;
 
+                //Convert rating to correct symbol
                 var ratingStr = EmojiPairs[rating];
+
+                //Add to output
                 output += $"{ratingStr} {type}\n";
             }
 
@@ -55,26 +61,36 @@ namespace Viewer
         public Form()
         {
             InitializeComponent();
+
+            //Initialize WebClient
             client = new WebClient();
         }
 
         public Image ToImage(byte[] b)
         {
+            //Create memory stream
             using (var ms = new MemoryStream(b))
             {
+                //Get image from stream
                 return Image.FromStream(ms);
             }
         }
 
         private Dictionary<string, int> ParseNounPronouns(Dictionary<string, int> dict)
         {
+            //Create copy of dictionary 
             var copy = new Dictionary<string, int>();
+
+            //Loop through dictionary and parse noun pronouns
             foreach (var pron in dict)
             {
                 var preparse = pron.Key;
                 var rating = pron.Value;
 
+                //Guard clause, just so we don't mess with other kinds of pronouns
                 if (!preparse.StartsWith(":")) { copy.Add(preparse, rating); continue; }
+
+                //Format noun pronouns
                 var substr = preparse.Substring(1);
                 var finalPronoun = $"{substr}/{substr}'s";
 
