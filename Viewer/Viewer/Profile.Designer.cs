@@ -1,6 +1,6 @@
 ﻿namespace Viewer
 {
-    partial class Form
+    partial class Profile
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.username = new System.Windows.Forms.Label();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.names = new System.Windows.Forms.Label();
             this.pronouns = new System.Windows.Forms.Label();
             this.age = new System.Windows.Forms.Label();
-            this.demoFetch = new System.Windows.Forms.Button();
+            this.saveProfile = new System.Windows.Forms.Button();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,19 +43,9 @@
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.username.Location = new System.Drawing.Point(12, 9);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(101, 18);
+            this.username.Size = new System.Drawing.Size(82, 15);
             this.username.TabIndex = 0;
             this.username.Text = "[USERNAME]";
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
-            this.profilePicture.Location = new System.Drawing.Point(12, 48);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(100, 96);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profilePicture.TabIndex = 1;
-            this.profilePicture.TabStop = false;
             // 
             // names
             // 
@@ -86,22 +75,33 @@
             this.age.TabIndex = 4;
             this.age.Text = "[AGE]";
             // 
-            // demoFetch
+            // saveProfile
             // 
-            this.demoFetch.Location = new System.Drawing.Point(641, 379);
-            this.demoFetch.Name = "demoFetch";
-            this.demoFetch.Size = new System.Drawing.Size(147, 62);
-            this.demoFetch.TabIndex = 5;
-            this.demoFetch.Text = "Fetch Demo User";
-            this.demoFetch.UseVisualStyleBackColor = true;
-            this.demoFetch.Click += new System.EventHandler(this.demoFetch_Click);
+            this.saveProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.saveProfile.Location = new System.Drawing.Point(661, 381);
+            this.saveProfile.Name = "saveProfile";
+            this.saveProfile.Size = new System.Drawing.Size(127, 57);
+            this.saveProfile.TabIndex = 5;
+            this.saveProfile.Text = "Save Profile";
+            this.saveProfile.UseVisualStyleBackColor = true;
+            this.saveProfile.Click += new System.EventHandler(this.saveProfile_Click);
             // 
-            // Form
+            // profilePicture
+            // 
+            this.profilePicture.Image = global::Viewer.Properties.Resources.Default_Profile;
+            this.profilePicture.Location = new System.Drawing.Point(12, 48);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(100, 96);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.profilePicture.TabIndex = 1;
+            this.profilePicture.TabStop = false;
+            // 
+            // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.demoFetch);
+            this.Controls.Add(this.saveProfile);
             this.Controls.Add(this.age);
             this.Controls.Add(this.pronouns);
             this.Controls.Add(this.names);
@@ -109,7 +109,7 @@
             this.Controls.Add(this.username);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form";
+            this.Name = "Profile";
             this.Text = "[USER] - pronouns.page";
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
@@ -124,7 +124,7 @@
         private System.Windows.Forms.Label names;
         private System.Windows.Forms.Label pronouns;
         private System.Windows.Forms.Label age;
-        private System.Windows.Forms.Button demoFetch;
+        private System.Windows.Forms.Button saveProfile;
     }
 }
 
