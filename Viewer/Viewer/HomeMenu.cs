@@ -11,12 +11,15 @@ namespace Viewer
 {
     public partial class HomeMenu : Form
     {
+        static HomeMenu Instance;
+
         static RegistryKey softwareKey;
         const string REGISTRY_PROFILE_SAVE_PATH = "ProfileSaveLocation";
         public HomeMenu()
         {
             InitializeComponent();
             softwareKey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\AveryOcean\PronounViewer");
+            Instance = this;
         }
 
         private void getUserOnline_Click(object sender, EventArgs e)
@@ -49,6 +52,35 @@ namespace Viewer
                 var bytes = Encoding.UTF8.GetBytes(json);
                 fs.Write(bytes, 0, bytes.Length);
             }
+
+            Instance.LoadJsonFiles();
+        }
+
+        public void LoadJsonFiles()
+        {
+            savedProfiles.Clear();
+            jsonFiles = new List<string>();
+
+            //Get files in save directory 
+            var dir = (string)softwareKey.GetValue(REGISTRY_PROFILE_SAVE_PATH);
+            var files = Directory.GetFiles(dir);
+
+            //Get each JSON and PNG files split up
+            foreach (var f in files)
+            {
+                if (f.EndsWith(".json")) jsonFiles.Add(f);
+            }
+
+            //Create List View Items for each JSON
+            foreach (var f in jsonFiles)
+            {
+                var trimEnd = f.Substring(0, f.Length - 5);
+                var backslashIndex = trimEnd.LastIndexOf('\\');
+                var trimStart = trimEnd.Substring(backslashIndex + 1);
+
+                var listItem = new ListViewItem(trimStart);
+                savedProfiles.Items.Add(listItem);
+            }
         }
 
         private void HomeMenu_Load(object sender, EventArgs e)
@@ -72,26 +104,7 @@ namespace Viewer
                 }
             }
 
-            //Get files in save directory 
-            var dir = (string)softwareKey.GetValue(REGISTRY_PROFILE_SAVE_PATH);
-            var files = Directory.GetFiles(dir);
-
-            //Get each JSON and PNG files split up
-            foreach (var f in files)
-            {
-                if (f.EndsWith(".json")) jsonFiles.Add(f);
-            }
-
-            //Create List View Items for each JSON
-            foreach (var f in jsonFiles)
-            {
-                var trimEnd = f.Substring(0, f.Length - 5);
-                var backslashIndex = trimEnd.LastIndexOf('\\');
-                var trimStart = trimEnd.Substring(backslashIndex + 1);
-
-                var listItem = new ListViewItem(trimStart);
-                savedProfiles.Items.Add(listItem);
-            }
+            LoadJsonFiles();
         }
 
 
@@ -121,8 +134,15 @@ namespace Viewer
             }
 
             Profile profile = new Profile();
-            profile.FetchUser(jsonFile, pfp);
-            profile.Show();
+            bool success = profile.FetchUser(jsonFile, pfp);
+            
+            if(success)
+                profile.Show();
+        }
+
+        private void reload_Click(object sender, EventArgs e)
+        {
+            LoadJsonFiles();
         }
     }
 }

@@ -35,6 +35,8 @@
             this.username = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.getUserOnline = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.reload = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -112,11 +114,34 @@
             this.getUserOnline.UseVisualStyleBackColor = true;
             this.getUserOnline.Click += new System.EventHandler(this.getUserOnline_Click);
             // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 428);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Made with ♥ by AveryOcean";
+            // 
+            // reload
+            // 
+            this.reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.reload.Location = new System.Drawing.Point(382, 399);
+            this.reload.Name = "reload";
+            this.reload.Size = new System.Drawing.Size(135, 39);
+            this.reload.TabIndex = 9;
+            this.reload.Text = "Reload";
+            this.reload.UseVisualStyleBackColor = true;
+            this.reload.Click += new System.EventHandler(this.reload_Click);
+            // 
             // HomeMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.reload);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.getUserOnline);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.username);
@@ -125,7 +150,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "HomeMenu";
-            this.Text = "HomeMenu";
+            this.Text = "Pronoun Viewer";
             this.Load += new System.EventHandler(this.HomeMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -141,5 +166,7 @@
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button getUserOnline;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button reload;
     }
 }

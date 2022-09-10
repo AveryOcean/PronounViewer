@@ -100,8 +100,15 @@ namespace Viewer
             saveProfile.Hide();
 
             //Let JsonConvert do the dirty work of converting to the Profile Struct for us.
-            string json = File.ReadAllText(jsonPath);
-            globalProfile = JsonConvert.DeserializeObject<GlobalProfile>(json);
+            try
+            {
+                string json = File.ReadAllText(jsonPath);
+                globalProfile = JsonConvert.DeserializeObject<GlobalProfile>(json);
+            } catch
+            {
+                MessageBox.Show("User data invalid!");
+                return false;
+            }
 
             //-- USERNAME --
             //Get Username from global profile and put it into the username label
