@@ -83,7 +83,6 @@
             this.savedProfiles.Size = new System.Drawing.Size(265, 363);
             this.savedProfiles.TabIndex = 3;
             this.savedProfiles.UseCompatibleStateImageBehavior = false;
-            this.savedProfiles.View = System.Windows.Forms.View.List;
             this.savedProfiles.ItemActivate += new System.EventHandler(this.savedProfiles_ItemActivate);
             // 
             // username
@@ -126,6 +125,7 @@
             // 
             // reload
             // 
+            this.reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.reload.Location = new System.Drawing.Point(382, 399);
             this.reload.Name = "reload";

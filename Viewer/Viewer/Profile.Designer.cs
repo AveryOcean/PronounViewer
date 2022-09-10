@@ -77,6 +77,7 @@
             // 
             // saveProfile
             // 
+            this.saveProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.saveProfile.Location = new System.Drawing.Point(661, 381);
             this.saveProfile.Name = "saveProfile";
