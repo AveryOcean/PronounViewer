@@ -16,6 +16,8 @@ namespace Viewer
         public string? description;
         public int? age;
 
+        public List<Dictionary<string, int>> words;
+
         private static Dictionary<int, string> EmojiPairs = new Dictionary<int, string>
         {
             { -1, "👎" },
@@ -25,11 +27,9 @@ namespace Viewer
             { 3, "💑" },
         };
 
-        public static string SerializeDictionary(Dictionary<string, int> dict, string header = "")
+        public static string SerializeDictionary(Dictionary<string, int> dict)
         {
-            //Create output with header
-            string output = $"{header}\n";
-
+            string output = "";
             foreach (var k in dict)
             {
                 //Get type (name) and rating
@@ -44,6 +44,19 @@ namespace Viewer
             }
 
             return output;
+        }
+
+        public static ListViewItem[] StringToListItems(string input, char delimeter = '\n')
+        {
+            string[] split = input.Split(delimeter);
+            List<ListViewItem> items = new List<ListViewItem>();
+
+            foreach(var str in split)
+            {
+                items.Add(new ListViewItem(str));
+            }
+
+            return items.ToArray();
         }
     }
 
@@ -140,20 +153,48 @@ namespace Viewer
 
             //-- NAMES --
             //Get list of names, serialize into proper formatting with ratings
-            var serializedNames = LanguageProfile.SerializeDictionary(primaryProfile.names, "Names:");
+            var serializedNames = LanguageProfile.SerializeDictionary(primaryProfile.names);
+
+            //Convert names to a list and insert into list view
+            var namesToList = LanguageProfile.StringToListItems(serializedNames);
+            namesList.Items.Clear();
+            namesList.Items.AddRange(namesToList);
 
             //Insert names into label for names
-            names.Text = serializedNames;
+            //names.Text = serializedNames;
 
             //-- PRONOUNS --
             //Parse any potential noun pronouns that could exist like "kit/kit's" (example from @jai_)
             var parsedPronouns = ParseNounPronouns(primaryProfile.pronouns);
 
             //Parse pronouns and rating into string
-            var serializedPronouns = LanguageProfile.SerializeDictionary(parsedPronouns, "Pronouns:");
+            var serializedPronouns = LanguageProfile.SerializeDictionary(parsedPronouns);
+
+            //Convert pronouns to a list and insert into list view
+            var pronounsToList = LanguageProfile.StringToListItems(serializedPronouns);
+            pronounsList.Items.Clear();
+            pronounsList.Items.AddRange(pronounsToList);
 
             //Display parsed stirng in pronouns textbox
-            pronouns.Text = serializedPronouns;
+            //pronouns.Text = serializedPronouns;
+
+            //-- DESCRIPTION --
+            description.Text = primaryProfile.description;
+
+            //-- Words --
+            if (primaryProfile.words == null) return true;
+
+            //Compile words from all sub-categories into one huge list
+            string compiledWords = "";
+            foreach(var dict in primaryProfile.words)
+            {
+                compiledWords += LanguageProfile.SerializeDictionary(dict);
+            }
+
+            //Convert the words to a list and insert into list view
+            var wordsToList = LanguageProfile.StringToListItems(compiledWords);
+            wordsList.Items.Clear();
+            wordsList.Items.AddRange(wordsToList);
 
             return true;
         }
@@ -213,20 +254,48 @@ namespace Viewer
 
             //-- NAMES --
             //Get list of names, serialize into proper formatting with ratings
-            var serializedNames = LanguageProfile.SerializeDictionary(primaryProfile.names, "Names:");
+            var serializedNames = LanguageProfile.SerializeDictionary(primaryProfile.names);
+
+            //Convert names to a list and insert into list view
+            var namesToList = LanguageProfile.StringToListItems(serializedNames);
+            namesList.Items.Clear();
+            namesList.Items.AddRange(namesToList);
 
             //Insert names into label for names
-            names.Text = serializedNames;
+            //names.Text = serializedNames;
 
             //-- PRONOUNS --
             //Parse any potential noun pronouns that could exist like "kit/kit's" (example from @jai_)
             var parsedPronouns = ParseNounPronouns(primaryProfile.pronouns);
 
             //Parse pronouns and rating into string
-            var serializedPronouns = LanguageProfile.SerializeDictionary(parsedPronouns, "Pronouns:");
+            var serializedPronouns = LanguageProfile.SerializeDictionary(parsedPronouns);
+
+            //Convert pronouns to a list and insert into list view
+            var pronounsToList = LanguageProfile.StringToListItems(serializedPronouns);
+            pronounsList.Items.Clear();
+            pronounsList.Items.AddRange(pronounsToList);
 
             //Display parsed stirng in pronouns textbox
-            pronouns.Text = serializedPronouns;
+            //pronouns.Text = serializedPronouns;
+
+            //-- DESCRIPTION --
+            description.Text = primaryProfile.description;
+
+            //-- Words --
+            if (primaryProfile.words == null) return true;
+
+            //Compile words from all sub-categories into one huge list
+            string compiledWords = "";
+            foreach (var dict in primaryProfile.words)
+            {
+                compiledWords += LanguageProfile.SerializeDictionary(dict);
+            }
+
+            //Convert the words to a list and insert into list view
+            var wordsToList = LanguageProfile.StringToListItems(compiledWords);
+            wordsList.Items.Clear();
+            wordsList.Items.AddRange(wordsToList);
 
             return true;
         }
