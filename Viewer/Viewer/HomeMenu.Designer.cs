@@ -37,6 +37,7 @@
             this.getUserOnline = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.reload = new System.Windows.Forms.Button();
+            this.settings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -135,11 +136,24 @@
             this.reload.UseVisualStyleBackColor = true;
             this.reload.Click += new System.EventHandler(this.reload_Click);
             // 
+            // settings
+            // 
+            this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.settings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.settings.Location = new System.Drawing.Point(241, 399);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(135, 39);
+            this.settings.TabIndex = 10;
+            this.settings.Text = "Settings";
+            this.settings.UseVisualStyleBackColor = true;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            // 
             // HomeMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.settings);
             this.Controls.Add(this.reload);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.getUserOnline);
@@ -168,5 +182,6 @@
         private System.Windows.Forms.Button getUserOnline;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button reload;
+        private System.Windows.Forms.Button settings;
     }
 }

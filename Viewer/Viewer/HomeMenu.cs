@@ -13,8 +13,9 @@ namespace Viewer
     {
         static HomeMenu Instance;
 
-        static RegistryKey softwareKey;
-        const string REGISTRY_PROFILE_SAVE_PATH = "ProfileSaveLocation";
+        public static RegistryKey softwareKey;
+        public const string REGISTRY_PROFILE_SAVE_PATH = "ProfileSaveLocation";
+        
         public HomeMenu()
         {
             InitializeComponent();
@@ -83,25 +84,32 @@ namespace Viewer
             }
         }
 
+        public static bool ChangeSaveLocation(bool showMessage = false)
+        {
+            if(showMessage)
+                MessageBox.Show("Please set a directory for us to store your saved profiles in.", "Directory Required!");
+
+            using (var fbd = new FolderBrowserDialog())
+            {
+                var result = fbd.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    softwareKey.SetValue(REGISTRY_PROFILE_SAVE_PATH, fbd.SelectedPath);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void HomeMenu_Load(object sender, EventArgs e)
         {
             if (softwareKey.GetValue(REGISTRY_PROFILE_SAVE_PATH) == null)
             {
-                MessageBox.Show("Please set a directory for us to store your saved profiles in.", "Directory Required!");
-
-                using (var fbd = new FolderBrowserDialog())
-                {
-                    var result = fbd.ShowDialog();
-                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                    {
-                        softwareKey.SetValue(REGISTRY_PROFILE_SAVE_PATH, fbd.SelectedPath);
-                        Activate();
-                    }
-                    else
-                    {
-                        Close();
-                    }
-                }
+                if (ChangeSaveLocation(true))
+                    Activate();
+                else
+                    Close();
             }
 
             LoadJsonFiles();
@@ -143,6 +151,12 @@ namespace Viewer
         private void reload_Click(object sender, EventArgs e)
         {
             LoadJsonFiles();
+        }
+
+        private void settings_Click(object sender, EventArgs e)
+        {
+            Options options = new Options();
+            options.Show();
         }
     }
 }
