@@ -6,6 +6,8 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
+using Viewer.Properties;
 
 namespace Viewer
 {
@@ -15,12 +17,17 @@ namespace Viewer
 
         public static RegistryKey softwareKey;
         public const string REGISTRY_PROFILE_SAVE_PATH = "ProfileSaveLocation";
-        
+        public const string FOLDER_NAME_SUFFIX = "-profile";
+
+        public static Image DefaultImage;
+
         public HomeMenu()
         {
             InitializeComponent();
             softwareKey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\AveryOcean\PronounViewer");
             Instance = this;
+
+            DefaultImage = Resources.Default_Profile;
         }
 
         private void getUserOnline_Click(object sender, EventArgs e)
@@ -35,12 +42,14 @@ namespace Viewer
         List<string> jsonFiles = new List<string>();
         public static void SaveProfile(GlobalProfile global, Image profilePicture)
         {
+            var usernameFolder = global.username + FOLDER_NAME_SUFFIX;
             var savePath = (string)softwareKey.GetValue(REGISTRY_PROFILE_SAVE_PATH);
-            var pfpLocation = Path.Combine(savePath, $"{global.username}-pfp.png");
-            var globalJsonLocation = Path.Combine(savePath, $"{global.username}.json");
+            var pfpLocation = Path.Combine(savePath, $"{usernameFolder}\\profile.png");
+            var globalJsonLocation = Path.Combine(savePath, $"{usernameFolder}\\data.json");
 
-            var imgBytes = ImageUtils.ImageToByteArray(profilePicture);
+            var imgBytes = ImageUtils.ImageToByteArray(profilePicture, DefaultImage);
 
+            Directory.CreateDirectory(Path.Combine(savePath, usernameFolder));
             using(var fs = File.Create(pfpLocation))
             {
                 fs.Write(imgBytes, 0, imgBytes.Length);
@@ -64,22 +73,32 @@ namespace Viewer
 
             //Get files in save directory 
             var dir = (string)softwareKey.GetValue(REGISTRY_PROFILE_SAVE_PATH);
-            var files = Directory.GetFiles(dir);
+            var allDirectories = Directory.GetDirectories(dir);
 
-            //Get each JSON and PNG files split up
-            foreach (var f in files)
+            //Filter profiles
+            List<string> filteredDirectories = new List<string>();
+            foreach (var item in allDirectories)
             {
-                if (f.EndsWith(".json")) jsonFiles.Add(f);
+                if (!item.EndsWith("profile")) continue;
+                filteredDirectories.Add(item);
             }
 
-            //Create List View Items for each JSON
-            foreach (var f in jsonFiles)
+            //Create List Ite
+            //m for each JSON in each directory
+            foreach (var item in filteredDirectories)
             {
-                var trimEnd = f.Substring(0, f.Length - 5);
-                var backslashIndex = trimEnd.LastIndexOf('\\');
-                var trimStart = trimEnd.Substring(backslashIndex + 1);
+                //Files
+                var jsonFile = Path.Combine(item, "data.json");
+                jsonFiles.Add(jsonFile);
+                
+                //Trim
+                var backslashIndex = item.LastIndexOf('\\');
+                var trimStart = item.Substring(backslashIndex + 1);
+                var profileIndex = trimStart.LastIndexOf(FOLDER_NAME_SUFFIX);
+                var trimEnd = trimStart.Substring(0, profileIndex);
 
-                var listItem = new ListViewItem(trimStart);
+                //Create List Item
+                var listItem = new ListViewItem(trimEnd);
                 savedProfiles.Items.Add(listItem);
             }
         }
@@ -128,11 +147,11 @@ namespace Viewer
             }
 
             string dir = (string)softwareKey.GetValue(REGISTRY_PROFILE_SAVE_PATH);
-            string jsonFile = $"{Path.Combine(dir, item.Text + ".json")}";
+            string jsonFile = $"{Path.Combine(dir, $"{item.Text}{FOLDER_NAME_SUFFIX}\\data.json")}";
 
             int index = jsonFiles.IndexOf(jsonFile);
 
-            string jsonPfp = jsonFiles[index].Substring(0, jsonFiles[index].Length - 5) + "-pfp.png";
+            string jsonPfp = jsonFiles[index].Substring(0, jsonFiles[index].Length - 9) + "profile.png";
             Image pfp = null;
 
             if(File.Exists(jsonPfp))

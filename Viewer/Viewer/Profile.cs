@@ -143,7 +143,7 @@ namespace Viewer
             }
             catch
             {
-                MessageBox.Show("No User found!");
+                MessageBox.Show("User not found!");
                 return false;
             }
 
@@ -244,7 +244,7 @@ namespace Viewer
             }
             catch
             {
-                MessageBox.Show("No User found!");
+                MessageBox.Show("User not found!");
                 return false;
             }
 

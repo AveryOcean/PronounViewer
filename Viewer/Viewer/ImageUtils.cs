@@ -1,15 +1,24 @@
 ﻿using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Viewer
 {
     internal class ImageUtils
     {
-        public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        public static byte[] ImageToByteArray(System.Drawing.Image imageIn, System.Drawing.Image defaultImage)
         {
             using (var ms = new MemoryStream())
             {
-                imageIn.Save(ms, imageIn.RawFormat);
+                try
+                {
+                    imageIn.Save(ms, imageIn.RawFormat);
+                } catch
+                {
+                    MessageBox.Show("Image loading failed! Using default image.");
+                    defaultImage.Save(ms, defaultImage.RawFormat);
+                }
+
                 return ms.ToArray();
             }
         }
