@@ -34,10 +34,12 @@
             this.pronounsList = new System.Windows.Forms.ListView();
             this.namesList = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.username = new System.Windows.Forms.Label();
             this.age = new System.Windows.Forms.Label();
+            this.username = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.description = new System.Windows.Forms.Label();
+            this.links = new System.Windows.Forms.ListView();
+            this.flags = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -45,11 +47,11 @@
             // 
             // saveProfile
             // 
-            this.saveProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.saveProfile.Location = new System.Drawing.Point(757, 12);
+            this.saveProfile.Location = new System.Drawing.Point(920, 397);
             this.saveProfile.Name = "saveProfile";
-            this.saveProfile.Size = new System.Drawing.Size(136, 89);
+            this.saveProfile.Size = new System.Drawing.Size(136, 41);
             this.saveProfile.TabIndex = 5;
             this.saveProfile.Text = "Save Profile";
             this.saveProfile.UseVisualStyleBackColor = true;
@@ -73,7 +75,7 @@
             this.wordsList.HideSelection = false;
             this.wordsList.Location = new System.Drawing.Point(215, 224);
             this.wordsList.Name = "wordsList";
-            this.wordsList.Size = new System.Drawing.Size(669, 214);
+            this.wordsList.Size = new System.Drawing.Size(531, 214);
             this.wordsList.TabIndex = 6;
             this.wordsList.UseCompatibleStateImageBehavior = false;
             // 
@@ -84,7 +86,7 @@
             this.pronounsList.HideSelection = false;
             this.pronounsList.Location = new System.Drawing.Point(215, 107);
             this.pronounsList.Name = "pronounsList";
-            this.pronounsList.Size = new System.Drawing.Size(669, 111);
+            this.pronounsList.Size = new System.Drawing.Size(531, 111);
             this.pronounsList.TabIndex = 7;
             this.pronounsList.UseCompatibleStateImageBehavior = false;
             // 
@@ -110,15 +112,6 @@
             this.panel1.Size = new System.Drawing.Size(197, 89);
             this.panel1.TabIndex = 12;
             // 
-            // username
-            // 
-            this.username.AutoSize = true;
-            this.username.Location = new System.Drawing.Point(2, 2);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(82, 15);
-            this.username.TabIndex = 0;
-            this.username.Text = "[USERNAME]";
-            // 
             // age
             // 
             this.age.AutoSize = true;
@@ -127,6 +120,15 @@
             this.age.Size = new System.Drawing.Size(37, 15);
             this.age.TabIndex = 1;
             this.age.Text = "[AGE]";
+            // 
+            // username
+            // 
+            this.username.AutoSize = true;
+            this.username.Location = new System.Drawing.Point(2, 2);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(82, 15);
+            this.username.TabIndex = 0;
+            this.username.Text = "[USERNAME]";
             // 
             // panel2
             // 
@@ -137,7 +139,7 @@
             this.panel2.Controls.Add(this.description);
             this.panel2.Location = new System.Drawing.Point(215, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(536, 89);
+            this.panel2.Size = new System.Drawing.Size(531, 89);
             this.panel2.TabIndex = 13;
             // 
             // description
@@ -149,11 +151,39 @@
             this.description.TabIndex = 0;
             this.description.Text = "[DESCRIPTION]";
             // 
+            // links
+            // 
+            this.links.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.links.HideSelection = false;
+            this.links.Location = new System.Drawing.Point(752, 12);
+            this.links.Name = "links";
+            this.links.Size = new System.Drawing.Size(162, 426);
+            this.links.TabIndex = 14;
+            this.links.UseCompatibleStateImageBehavior = false;
+            this.links.View = System.Windows.Forms.View.List;
+            this.links.ItemActivate += new System.EventHandler(this.links_ItemActivate);
+            // 
+            // flags
+            // 
+            this.flags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flags.HideSelection = false;
+            this.flags.Location = new System.Drawing.Point(920, 12);
+            this.flags.Name = "flags";
+            this.flags.Size = new System.Drawing.Size(136, 379);
+            this.flags.TabIndex = 15;
+            this.flags.UseCompatibleStateImageBehavior = false;
+            this.flags.View = System.Windows.Forms.View.List;
+            this.flags.ItemActivate += new System.EventHandler(this.flags_ItemActivate);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 450);
+            this.ClientSize = new System.Drawing.Size(1068, 450);
+            this.Controls.Add(this.flags);
+            this.Controls.Add(this.links);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.namesList);
@@ -184,6 +214,8 @@
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label description;
+        private System.Windows.Forms.ListView links;
+        private System.Windows.Forms.ListView flags;
     }
 }
 

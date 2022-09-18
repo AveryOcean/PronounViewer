@@ -16,6 +16,10 @@ namespace Viewer
         public string? description;
         public int? age;
 
+        public string[] links;
+        public string[] flags;
+        public Dictionary<string, string> customFlags;
+
         public List<Dictionary<string, int>> words;
 
         private static Dictionary<int, string> EmojiPairs = new Dictionary<int, string>
@@ -46,14 +50,35 @@ namespace Viewer
             return output;
         }
 
-        public static ListViewItem[] StringToListItems(string input, char delimeter = '\n')
+        public static string[] GetAllItems<A,B>(Dictionary<A,B> dict)
+        {
+            if (dict == null || dict.Count == 0) return new string[0];
+
+            List<string> str = new List<string>();
+            foreach (var item in dict)
+            {
+                str.Add(item.Value.ToString());
+            }
+
+            return str.ToArray();
+        }
+
+        public static ListViewItem[] StringToListItems(string input, char delimeter = '\n', string tooltip = "")
         {
             string[] split = input.Split(delimeter);
+            return StringToListItems(split, tooltip);
+        }
+
+        public static ListViewItem[] StringToListItems(string[] input, string tooltip = "")
+        {
+            if (input == null) return new ListViewItem[0];
             List<ListViewItem> items = new List<ListViewItem>();
 
-            foreach(var str in split)
+            foreach (var str in input)
             {
-                items.Add(new ListViewItem(str));
+                var item = new ListViewItem(str);
+                item.ToolTipText = tooltip;
+                items.Add(item);
             }
 
             return items.ToArray();
@@ -70,6 +95,10 @@ namespace Viewer
     public partial class Profile : System.Windows.Forms.Form
     {
         const string userFetch = "https://en.pronouns.page/api/profile/get/";
+        const string terminologyBase = "https://en.pronouns.page/dictionary/terminology#";
+
+        const string customFlagTooltip = "This is a custom flag set by the owner of this profile.";
+        const string nonCustomFlagTooltip = "This is a LGBTQ flag. To see more about it double-click on this item. (Internet required!)";
         WebClient client;
 
         GlobalProfile globalProfile = new GlobalProfile();
@@ -181,6 +210,19 @@ namespace Viewer
             //-- DESCRIPTION --
             description.Text = primaryProfile.description;
 
+            //-- Links --
+            var linkList = LanguageProfile.StringToListItems(primaryProfile.links);
+            links.Clear();
+            links.Items.AddRange(linkList);
+
+            //-- Flags --
+            var flagList = LanguageProfile.StringToListItems(primaryProfile.flags, nonCustomFlagTooltip);
+            var customFlagStringList = LanguageProfile.GetAllItems(primaryProfile.customFlags);
+            var customFlagList = LanguageProfile.StringToListItems(customFlagStringList, customFlagTooltip);
+            flags.Clear();
+            flags.Items.AddRange(flagList);
+            flags.Items.AddRange(customFlagList);
+
             //-- Words --
             if (primaryProfile.words == null) return true;
 
@@ -282,6 +324,19 @@ namespace Viewer
             //-- DESCRIPTION --
             description.Text = primaryProfile.description;
 
+            //-- Links --
+            var linkList = LanguageProfile.StringToListItems(primaryProfile.links);
+            links.Clear();
+            links.Items.AddRange(linkList);
+
+            //-- Flags --
+            var flagList = LanguageProfile.StringToListItems(primaryProfile.flags, nonCustomFlagTooltip);
+            var customFlagStringList = LanguageProfile.GetAllItems(primaryProfile.customFlags);
+            var customFlagList = LanguageProfile.StringToListItems(customFlagStringList, customFlagTooltip);
+            flags.Clear();
+            flags.Items.AddRange(flagList);
+            flags.Items.AddRange(customFlagList);
+
             //-- Words --
             if (primaryProfile.words == null) return true;
 
@@ -303,6 +358,24 @@ namespace Viewer
         private void saveProfile_Click(object sender, EventArgs e)
         {
             HomeMenu.SaveProfile(globalProfile, profilePicture.Image);
+        }
+
+        private void flags_ItemActivate(object sender, EventArgs e)
+        {
+            var item = flags.SelectedItems[0];
+            if (item.ToolTipText == customFlagTooltip)
+            {
+                MessageBox.Show("This is a custom flag! We can't pull more info about it.");
+                return;
+            }
+
+            var termLink = terminologyBase + item.Text;
+            System.Diagnostics.Process.Start(termLink);
+        }
+
+        private void links_ItemActivate(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(links.SelectedItems[0].Text);
         }
     }
 }
