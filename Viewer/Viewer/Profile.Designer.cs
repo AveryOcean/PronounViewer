@@ -72,6 +72,8 @@
             this.wordsList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.wordsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.wordsList.ForeColor = System.Drawing.Color.White;
             this.wordsList.HideSelection = false;
             this.wordsList.Location = new System.Drawing.Point(215, 224);
             this.wordsList.Name = "wordsList";
@@ -83,6 +85,8 @@
             // 
             this.pronounsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pronounsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.pronounsList.ForeColor = System.Drawing.Color.White;
             this.pronounsList.HideSelection = false;
             this.pronounsList.Location = new System.Drawing.Point(215, 107);
             this.pronounsList.Name = "pronounsList";
@@ -94,6 +98,8 @@
             // 
             this.namesList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.namesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.namesList.ForeColor = System.Drawing.Color.White;
             this.namesList.HideSelection = false;
             this.namesList.Location = new System.Drawing.Point(12, 224);
             this.namesList.Name = "namesList";
@@ -103,10 +109,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.age);
             this.panel1.Controls.Add(this.username);
+            this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(197, 89);
@@ -134,9 +141,10 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.Window;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.description);
+            this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(215, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(531, 89);
@@ -155,6 +163,8 @@
             // 
             this.links.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.links.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.links.ForeColor = System.Drawing.Color.White;
             this.links.HideSelection = false;
             this.links.Location = new System.Drawing.Point(752, 12);
             this.links.Name = "links";
@@ -168,6 +178,8 @@
             // 
             this.flags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flags.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.flags.ForeColor = System.Drawing.Color.White;
             this.flags.HideSelection = false;
             this.flags.Location = new System.Drawing.Point(920, 12);
             this.flags.Name = "flags";
@@ -181,6 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(1068, 450);
             this.Controls.Add(this.flags);
             this.Controls.Add(this.links);

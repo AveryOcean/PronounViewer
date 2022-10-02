@@ -71,24 +71,28 @@
             this.changeSaveLoc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.changeSaveLoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
             this.changeSaveLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.changeSaveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.changeSaveLoc.Location = new System.Drawing.Point(12, 94);
             this.changeSaveLoc.Name = "changeSaveLoc";
             this.changeSaveLoc.Size = new System.Drawing.Size(514, 63);
             this.changeSaveLoc.TabIndex = 3;
             this.changeSaveLoc.Text = "Change Save Location";
-            this.changeSaveLoc.UseVisualStyleBackColor = true;
+            this.changeSaveLoc.UseVisualStyleBackColor = false;
             this.changeSaveLoc.Click += new System.EventHandler(this.changeSaveLoc_Click);
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(541, 170);
             this.Controls.Add(this.changeSaveLoc);
             this.Controls.Add(this.profileSaveLocLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Options";
             this.Text = "Options";

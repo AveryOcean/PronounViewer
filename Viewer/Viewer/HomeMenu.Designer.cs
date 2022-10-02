@@ -44,6 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(319, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 25);
@@ -54,6 +55,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(87, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 25);
@@ -66,6 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(590, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 25);
@@ -77,6 +80,8 @@
             this.savedProfiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.savedProfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.savedProfiles.ForeColor = System.Drawing.Color.White;
             this.savedProfiles.HideSelection = false;
             this.savedProfiles.Location = new System.Drawing.Point(523, 75);
             this.savedProfiles.MultiSelect = false;
@@ -88,6 +93,8 @@
             // 
             // username
             // 
+            this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.username.ForeColor = System.Drawing.Color.White;
             this.username.Location = new System.Drawing.Point(51, 107);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(302, 20);
@@ -97,6 +104,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(48, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 17);
@@ -105,19 +113,22 @@
             // 
             // getUserOnline
             // 
+            this.getUserOnline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
             this.getUserOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.getUserOnline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.getUserOnline.Location = new System.Drawing.Point(51, 133);
             this.getUserOnline.Name = "getUserOnline";
             this.getUserOnline.Size = new System.Drawing.Size(302, 58);
             this.getUserOnline.TabIndex = 6;
             this.getUserOnline.Text = "Get User";
-            this.getUserOnline.UseVisualStyleBackColor = true;
+            this.getUserOnline.UseVisualStyleBackColor = false;
             this.getUserOnline.Click += new System.EventHandler(this.getUserOnline_Click);
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(12, 428);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(147, 13);
@@ -127,31 +138,36 @@
             // reload
             // 
             this.reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
             this.reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.reload.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.reload.Location = new System.Drawing.Point(382, 399);
             this.reload.Name = "reload";
             this.reload.Size = new System.Drawing.Size(135, 39);
             this.reload.TabIndex = 9;
             this.reload.Text = "Reload";
-            this.reload.UseVisualStyleBackColor = true;
+            this.reload.UseVisualStyleBackColor = false;
             this.reload.Click += new System.EventHandler(this.reload_Click);
             // 
             // settings
             // 
             this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
             this.settings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.settings.Location = new System.Drawing.Point(241, 399);
             this.settings.Name = "settings";
             this.settings.Size = new System.Drawing.Size(135, 39);
             this.settings.TabIndex = 10;
             this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
+            this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // HomeMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.reload);
