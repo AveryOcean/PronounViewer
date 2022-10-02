@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -18,6 +19,7 @@ namespace Viewer
         public static RegistryKey softwareKey;
         public const string REGISTRY_PROFILE_SAVE_PATH = "ProfileSaveLocation";
         public const string FOLDER_NAME_SUFFIX = "-profile";
+        public const string REGISTRY_THEME_TOGGLE = "AppUseLightTheme";
 
         public static Image DefaultImage;
 
@@ -28,6 +30,40 @@ namespace Viewer
             Instance = this;
 
             DefaultImage = Resources.Default_Profile;
+
+            if(!softwareKey.GetValueNames().Contains(REGISTRY_THEME_TOGGLE))
+            {
+                int result = (int)Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "AppsUseLightTheme", -1);
+                softwareKey.SetValue(REGISTRY_THEME_TOGGLE, result);
+            }
+
+            InitializeColors();
+        }
+
+        private void InitializeColors()
+        {
+            BackColor = ColorValues.primaryBackground;
+
+            label1.ForeColor = ColorValues.primaryText;
+            label2.ForeColor = ColorValues.primaryText;
+            label3.ForeColor = ColorValues.primaryText;
+            label4.ForeColor = ColorValues.primaryText;
+            label6.ForeColor = ColorValues.primaryText;
+
+            username.BackColor = ColorValues.primaryAccent;
+            username.ForeColor = ColorValues.primaryText;
+
+            getUserOnline.BackColor = ColorValues.secondaryAccent;
+            getUserOnline.ForeColor = ColorValues.secondaryText;
+
+            settings.BackColor = ColorValues.secondaryAccent;
+            settings.ForeColor = ColorValues.secondaryText;
+
+            reload.BackColor = ColorValues.secondaryAccent;
+            reload.ForeColor = ColorValues.secondaryText;
+
+            savedProfiles.BackColor = ColorValues.primaryAccent;
+            savedProfiles.ForeColor = ColorValues.primaryText;
         }
 
         private void getUserOnline_Click(object sender, EventArgs e)

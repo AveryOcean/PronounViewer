@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.profileSaveLocLabel = new System.Windows.Forms.Label();
             this.changeSaveLoc = new System.Windows.Forms.Button();
+            this.useLightTheme = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -72,22 +73,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.changeSaveLoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
-            this.changeSaveLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.changeSaveLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeSaveLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.changeSaveLoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
-            this.changeSaveLoc.Location = new System.Drawing.Point(12, 94);
+            this.changeSaveLoc.Location = new System.Drawing.Point(17, 102);
             this.changeSaveLoc.Name = "changeSaveLoc";
-            this.changeSaveLoc.Size = new System.Drawing.Size(514, 63);
+            this.changeSaveLoc.Size = new System.Drawing.Size(514, 49);
             this.changeSaveLoc.TabIndex = 3;
             this.changeSaveLoc.Text = "Change Save Location";
             this.changeSaveLoc.UseVisualStyleBackColor = false;
             this.changeSaveLoc.Click += new System.EventHandler(this.changeSaveLoc_Click);
+            // 
+            // useLightTheme
+            // 
+            this.useLightTheme.AutoSize = true;
+            this.useLightTheme.Location = new System.Drawing.Point(17, 157);
+            this.useLightTheme.Name = "useLightTheme";
+            this.useLightTheme.Size = new System.Drawing.Size(107, 17);
+            this.useLightTheme.TabIndex = 4;
+            this.useLightTheme.Text = "Use Light Theme";
+            this.useLightTheme.UseVisualStyleBackColor = true;
+            this.useLightTheme.CheckedChanged += new System.EventHandler(this.useLightTheme_CheckedChanged);
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(541, 170);
+            this.ClientSize = new System.Drawing.Size(541, 274);
+            this.Controls.Add(this.useLightTheme);
             this.Controls.Add(this.changeSaveLoc);
             this.Controls.Add(this.profileSaveLocLabel);
             this.Controls.Add(this.label2);
@@ -107,5 +121,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label profileSaveLocLabel;
         private System.Windows.Forms.Button changeSaveLoc;
+        private System.Windows.Forms.CheckBox useLightTheme;
     }
 }

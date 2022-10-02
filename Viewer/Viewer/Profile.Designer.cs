@@ -33,21 +33,22 @@
             this.wordsList = new System.Windows.Forms.ListView();
             this.pronounsList = new System.Windows.Forms.ListView();
             this.namesList = new System.Windows.Forms.ListView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.usernamePanel = new System.Windows.Forms.Panel();
             this.age = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.descriptionPanel = new System.Windows.Forms.Panel();
             this.description = new System.Windows.Forms.Label();
             this.links = new System.Windows.Forms.ListView();
             this.flags = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.usernamePanel.SuspendLayout();
+            this.descriptionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // saveProfile
             // 
             this.saveProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.saveProfile.Location = new System.Drawing.Point(920, 397);
             this.saveProfile.Name = "saveProfile";
@@ -73,6 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wordsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.wordsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.wordsList.ForeColor = System.Drawing.Color.White;
             this.wordsList.HideSelection = false;
             this.wordsList.Location = new System.Drawing.Point(215, 224);
@@ -86,6 +88,7 @@
             this.pronounsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pronounsList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.pronounsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pronounsList.ForeColor = System.Drawing.Color.White;
             this.pronounsList.HideSelection = false;
             this.pronounsList.Location = new System.Drawing.Point(215, 107);
@@ -99,6 +102,7 @@
             this.namesList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.namesList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.namesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.namesList.ForeColor = System.Drawing.Color.White;
             this.namesList.HideSelection = false;
             this.namesList.Location = new System.Drawing.Point(12, 224);
@@ -107,17 +111,16 @@
             this.namesList.TabIndex = 8;
             this.namesList.UseCompatibleStateImageBehavior = false;
             // 
-            // panel1
+            // usernamePanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.age);
-            this.panel1.Controls.Add(this.username);
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 89);
-            this.panel1.TabIndex = 12;
+            this.usernamePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.usernamePanel.Controls.Add(this.age);
+            this.usernamePanel.Controls.Add(this.username);
+            this.usernamePanel.ForeColor = System.Drawing.Color.White;
+            this.usernamePanel.Location = new System.Drawing.Point(12, 12);
+            this.usernamePanel.Name = "usernamePanel";
+            this.usernamePanel.Size = new System.Drawing.Size(197, 89);
+            this.usernamePanel.TabIndex = 12;
             // 
             // age
             // 
@@ -137,18 +140,17 @@
             this.username.TabIndex = 0;
             this.username.Text = "[USERNAME]";
             // 
-            // panel2
+            // descriptionPanel
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.descriptionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.description);
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(215, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(531, 89);
-            this.panel2.TabIndex = 13;
+            this.descriptionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.descriptionPanel.Controls.Add(this.description);
+            this.descriptionPanel.ForeColor = System.Drawing.Color.White;
+            this.descriptionPanel.Location = new System.Drawing.Point(215, 12);
+            this.descriptionPanel.Name = "descriptionPanel";
+            this.descriptionPanel.Size = new System.Drawing.Size(531, 89);
+            this.descriptionPanel.TabIndex = 13;
             // 
             // description
             // 
@@ -164,6 +166,7 @@
             this.links.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.links.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.links.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.links.ForeColor = System.Drawing.Color.White;
             this.links.HideSelection = false;
             this.links.Location = new System.Drawing.Point(752, 12);
@@ -179,6 +182,7 @@
             this.flags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flags.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.flags.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.flags.ForeColor = System.Drawing.Color.White;
             this.flags.HideSelection = false;
             this.flags.Location = new System.Drawing.Point(920, 12);
@@ -197,8 +201,8 @@
             this.ClientSize = new System.Drawing.Size(1068, 450);
             this.Controls.Add(this.flags);
             this.Controls.Add(this.links);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.descriptionPanel);
+            this.Controls.Add(this.usernamePanel);
             this.Controls.Add(this.namesList);
             this.Controls.Add(this.pronounsList);
             this.Controls.Add(this.wordsList);
@@ -208,10 +212,10 @@
             this.Name = "Profile";
             this.Text = "[USER] - pronouns.page";
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.usernamePanel.ResumeLayout(false);
+            this.usernamePanel.PerformLayout();
+            this.descriptionPanel.ResumeLayout(false);
+            this.descriptionPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -222,10 +226,10 @@
         private System.Windows.Forms.ListView wordsList;
         private System.Windows.Forms.ListView pronounsList;
         private System.Windows.Forms.ListView namesList;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel usernamePanel;
         private System.Windows.Forms.Label age;
         private System.Windows.Forms.Label username;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel descriptionPanel;
         private System.Windows.Forms.Label description;
         private System.Windows.Forms.ListView links;
         private System.Windows.Forms.ListView flags;

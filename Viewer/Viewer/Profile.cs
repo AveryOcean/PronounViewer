@@ -107,12 +107,35 @@ namespace Viewer
         GlobalProfile globalProfile = new GlobalProfile();
         LanguageProfile primaryProfile = new LanguageProfile();
 
+        private void InitializeColors()
+        {
+            BackColor = ColorValues.primaryBackground;
+            usernamePanel.BackColor = ColorValues.primaryAccent;
+            usernamePanel.ForeColor = ColorValues.primaryText;
+            descriptionPanel.BackColor = ColorValues.primaryAccent;
+            descriptionPanel.ForeColor = ColorValues.primaryText;
+            namesList.BackColor = ColorValues.primaryAccent;
+            namesList.ForeColor = ColorValues.primaryText;
+            pronounsList.BackColor = ColorValues.primaryAccent;
+            pronounsList.ForeColor = ColorValues.primaryText;
+            wordsList.BackColor = ColorValues.primaryAccent;
+            wordsList.ForeColor = ColorValues.primaryText;
+            links.BackColor = ColorValues.primaryAccent;
+            links.ForeColor = ColorValues.primaryText;
+            flags.BackColor = ColorValues.primaryAccent;
+            flags.ForeColor = ColorValues.primaryText;
+
+            saveProfile.BackColor = ColorValues.secondaryAccent;
+            saveProfile.ForeColor = ColorValues.secondaryText;
+        }
+
         public Profile()
         {
             InitializeComponent();
 
             //Initialize WebClient
             client = new WebClient();
+            InitializeColors();
         }
 
         private Dictionary<string, int> ParseNounPronouns(Dictionary<string, int> dict)

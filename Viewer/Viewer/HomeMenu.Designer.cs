@@ -81,6 +81,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.savedProfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.savedProfiles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.savedProfiles.ForeColor = System.Drawing.Color.White;
             this.savedProfiles.HideSelection = false;
             this.savedProfiles.Location = new System.Drawing.Point(523, 75);
@@ -94,6 +95,7 @@
             // username
             // 
             this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(76)))), ((int)(((byte)(90)))));
+            this.username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.username.ForeColor = System.Drawing.Color.White;
             this.username.Location = new System.Drawing.Point(51, 107);
             this.username.Name = "username";
@@ -114,6 +116,7 @@
             // getUserOnline
             // 
             this.getUserOnline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
+            this.getUserOnline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.getUserOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.getUserOnline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.getUserOnline.Location = new System.Drawing.Point(51, 133);
@@ -139,6 +142,7 @@
             // 
             this.reload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
+            this.reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.reload.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.reload.Location = new System.Drawing.Point(382, 399);
@@ -153,6 +157,7 @@
             // 
             this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(161)))), ((int)(((byte)(191)))));
+            this.settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.settings.Location = new System.Drawing.Point(241, 399);
